@@ -1,8 +1,0 @@
-{
-    "name":"gputoolkit_monitor",
-    "type":"prometheus",
-    "url":"http://192.168.42.21:9090",
-    "access":"browser",
-    "basicAuth":false
-  }
-
