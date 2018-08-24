@@ -1,0 +1,14 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: 'node_exporter'
+    scrape_interval: 1s
+    static_configs:
+      # the node_exporter is set on the host directly, 
+      # so it may be the result of which port 9100 cannot be found by localhost
+      - targets: ['192.168.42.21:9100'] 

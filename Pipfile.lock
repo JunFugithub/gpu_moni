@@ -1,0 +1,35 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "238f7c91831fc59f409064b0d71db9dd704eecee467d5b2cd46340fc92442a4f"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.6"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "nvidia-ml-py": {
+            "hashes": [
+                "sha256:0167a6acff2cb8b21195685da1c4e862c73c5201d06e36f48d5eeb9d1868e28f"
+            ],
+            "index": "pypi",
+            "version": "==375.53"
+        },
+        "prometheus-client": {
+            "hashes": [
+                "sha256:17bc24c09431644f7c65d7bce9f4237252308070b6395d6d8e87767afe867e24"
+            ],
+            "index": "pypi",
+            "version": "==0.3.1"
+        }
+    },
+    "develop": {}
+}
