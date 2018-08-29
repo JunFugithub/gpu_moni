@@ -1,46 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "gputoolkit_monitor",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "5.2.2"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": "5.0.0"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "5.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": "5.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": "5.0.0"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -58,7 +16,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": null,
   "links": [],
   "panels": [
     {
@@ -863,7 +820,7 @@
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "col": 0,
+        "col": 2,
         "desc": true
       },
       "styles": [
@@ -982,6 +939,7 @@
         {
           "expr": "gputoolkit_vgpu_type",
           "format": "table",
+          "hide": true,
           "instant": true,
           "intervalFactor": 10,
           "legendFormat": "",
@@ -990,6 +948,7 @@
         {
           "expr": "gputoolkit_attached_vgpu",
           "format": "table",
+          "hide": true,
           "instant": true,
           "intervalFactor": 10,
           "refId": "C"
@@ -1091,6 +1050,114 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "gputoolkit_monitor",
+      "description": "the template of pciE transmit speed graph",
+      "fill": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "id": 26,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 0.5,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "gputoolkit_RX_speed{gpu=\"0\"}",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "expr": "gputoolkit_TX_speed{gpu=\"0\"}",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "refId": "B"
+        },
+        {
+          "expr": "gputoolkit_pciE_cur_perf{gpu=\"0\"} * 10^6",
+          "format": "time_series",
+          "hide": true,
+          "intervalFactor": 1,
+          "refId": "C"
+        },
+        {
+          "expr": "gputoolkit_pciE_max_perf{gpu=\"0\"} * 10^6",
+          "format": "time_series",
+          "hide": true,
+          "intervalFactor": 1,
+          "refId": "D"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "pciE0",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "KBs",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "gputoolkit_monitor",
       "description": "describe the temperature for each GPU",
       "fill": 1,
       "gridPos": {
@@ -1176,6 +1243,7 @@
       }
     }
   ],
+  "refresh": false,
   "schemaVersion": 16,
   "style": "dark",
   "tags": [],
@@ -1183,8 +1251,8 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
-    "to": "now"
+    "from": "2018-08-26T13:18:19.982Z",
+    "to": "2018-08-27T13:18:19.982Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -1216,4 +1284,3 @@
   "uid": "9mHxIQtmz",
   "version": 1
 }
-
