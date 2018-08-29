@@ -1,4 +1,46 @@
 {
+  "__inputs": [
+    {
+      "name": "gputoolkit_monitor",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.2.2"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": "5.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": "5.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": "5.0.0"
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -536,6 +578,88 @@
       "colorBackground": false,
       "colorValue": true,
       "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "gputoolkit_monitor",
+      "decimals": 2,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 19,
+        "y": 0
+      },
+      "id": 28,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "gputoolkit_cuda_runtime_version",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "cuda_runtime_version",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
         "#d44a3a",
         "rgba(237, 129, 40, 0.89)",
         "#299c46"
@@ -803,6 +927,86 @@
       "valueName": "avg"
     },
     {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "gputoolkit_monitor",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 5,
+        "x": 19,
+        "y": 3
+      },
+      "id": 30,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "gputoolkit_cuda_driver_version",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "cuda_driver_version",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
       "columns": [],
       "datasource": "gputoolkit_monitor",
       "description": "merge all vGPU info in this table, such as vGPU type, license, ID etc.",
@@ -820,7 +1024,7 @@
       "scroll": true,
       "showHeader": true,
       "sort": {
-        "col": 2,
+        "col": 0,
         "desc": true
       },
       "styles": [
@@ -939,7 +1143,6 @@
         {
           "expr": "gputoolkit_vgpu_type",
           "format": "table",
-          "hide": true,
           "instant": true,
           "intervalFactor": 10,
           "legendFormat": "",
@@ -948,7 +1151,6 @@
         {
           "expr": "gputoolkit_attached_vgpu",
           "format": "table",
-          "hide": true,
           "instant": true,
           "intervalFactor": 10,
           "refId": "C"
@@ -1243,7 +1445,6 @@
       }
     }
   ],
-  "refresh": false,
   "schemaVersion": 16,
   "style": "dark",
   "tags": [],
@@ -1251,8 +1452,8 @@
     "list": []
   },
   "time": {
-    "from": "2018-08-26T13:18:19.982Z",
-    "to": "2018-08-27T13:18:19.982Z"
+    "from": "now-6h",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -1282,5 +1483,5 @@
   "timezone": "browser",
   "title": "gpu_monitor",
   "uid": "9mHxIQtmz",
-  "version": 1
+  "version": 6
 }
